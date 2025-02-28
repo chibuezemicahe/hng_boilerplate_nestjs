@@ -14,30 +14,30 @@ jobs:
   deploy-prod:
     runs-on: ubuntu-latest
     steps:
-      - name : Checkout code
+      - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build Application
-        run: | 
+        run: |
           npm run build
           cp package.json deployment.sh main-ecosystem-config.json dist
       - name: Archive application build
         run: |
           tar -czf nestjs-prod.tar.gz dist
-          
+
       - name: Copy Artifacts to server
         run: |
           sshpass -p ${{ secrets.PASSWORD }} scp -o StrictHostKeyChecking=no nestjs-prod.tar.gz ${{ secrets.USERNAME }}@${{ secrets.HOST }}:/tmp/nestjs
           rm -f nestjs-prod.tar.gz
-          
+
       - name: Deploy on server
         uses: appleboy/ssh-action@master
         with:

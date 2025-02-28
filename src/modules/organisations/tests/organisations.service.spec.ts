@@ -5,10 +5,7 @@ import { User } from '../../user/entities/user.entity';
 import { Organisation } from '../entities/organisations.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import UserService from '../../user/user.service';
-import {
-  ForbiddenException,
-  NotFoundException,
-} from '@nestjs/common';
+import { ForbiddenException, NotFoundException } from '@nestjs/common';
 import { Profile } from '../../profile/entities/profile.entity';
 import { OrganisationUserRole } from '../../../modules/role/entities/organisation-user-role.entity';
 import { Role } from '../../../modules/role/entities/role.entity';

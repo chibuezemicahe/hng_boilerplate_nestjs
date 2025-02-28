@@ -4,46 +4,254 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>Newsletter</title>
     <style>
-      @import
-      url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-      * { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter; } body { min-height: 100svh; } header {
-      display: flex; width: 100%; height: 7.625rem; justify-content: center; align-items: center; background: rgba(225,
-      214, 214, 0.4); } h2 { color: #121a26; font-feature-settings: "liga" off, "clig" off; font-size: 1.5rem;
-      font-weight: 600; } .template-main { display: flex; padding: 3.5rem 3.5rem 2rem 3.5rem; flex-direction: column;
-      align-items: center; gap: 3.5rem; max-width: 790px; margin: 0 auto; } .heading { display: flex; flex-direction:
-      column; justify-content: center; align-items: center; gap: 0.75rem; } .content { display: flex; flex-direction:
-      column; gap: 2rem; } .template-header { color: var(--Neutral-Colors-Dark-2, #0a0a0a); text-align: center;
-      font-size: 1.5rem; font-weight: 600; } .template-subheader { color: rgba(0, 0, 0, 0.8); text-align: center;
-      font-size: 1.125rem; font-weight: 500; } .template-receiver-name { color: #111; font-size: 1.125rem; font-weight:
-      600; } .template-welcome-message { color: rgba(17, 17, 17, 0.9); font-size: 1rem; font-weight: 400; }
-      .editable-content-title { color: var(--Neutral-Colors-Dark-2, #0a0a0a); font-size: 1rem; font-weight: 600;
-      opacity: 0.9; margin-bottom: 1.25rem; } .editable-content-list p { opacity: 0.9; color:
-      var(--Neutral-Colors-Dark-2, rgba(17, 17, 17, 0.9)); font-size: 1rem; font-weight: 400; margin-bottom: 1rem; }
-      .editable-content-list span { color: var(--Neutral-Colors-Dark-2, #0a0a0a); font-size: 1rem; font-weight: 600; }
-      .template-btn { display: flex; height: 2.75rem; padding: 0.5rem 2.5rem; align-items: center; gap: 0.625rem;
-      border-radius: 0.5rem; align-self: center; text-decoration: none; cursor: pointer; } .button-fill { border: none;
-      color: white; background: #f97316; } .button-outline { border: 1px solid #f97316; color: #f97316; background:
-      none; } .button-group { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; } .custom-list-items {
-      list-style: none; } .custom-list-items li { display: flex; align-items: center; margin-bottom: 1rem; }
-      .custom-list-items li svg { margin-right: 1rem; } .template-farewell p { color: #111; font-size: 0.875rem;
-      font-weight: 500; margin-bottom: 0.5rem; } .closing-regards { color: rgba(17, 17, 17, 0.9); font-family: Inter;
-      font-size: 16px; font-style: normal; font-weight: 400; line-height: normal; } a { font-weight: 600;
-      text-decoration: underline; color: #111; } .closing-regards a:hover { text-decoration: underline; } .link-faq {
-      text-decoration: none; color: #f97316; font-weight: 600; } .link-email { text-decoration: none; color: #f97316;
-      font-weight: 400; } footer { background: #f3efef; display: flex; width: 100%; padding: 2rem 0; justify-content:
-      center; } .footer-container { max-width: 790px; width: 100%; padding: 0 3rem; } footer .heading { display: flex;
-      flex-direction: row; align-items: center; gap: 2.0625rem; margin-bottom: 1rem; } footer .content { display: flex;
-      flex-direction: column; gap: 1.875rem; color: #5b5b5d; font-size: 0.875rem; font-weight: 400; } footer .content >
-      span { margin-block-start: 1.3em; } footer .contact-support { color: #111; font-size: 0.875rem; font-weight: 600;
-      text-decoration: underline; } footer hr { border-style: dashed; width: 100%; border-color: #969696; } .expiry-date
-      { width: 100%; display: flex; gap: 4px; flex-direction: column; background-color: #f97316; color: white; padding:
-      40px; } .expiry-date .text { color: var(#fff); text-align: center; font-family: Inter; font-size: 24px;
-      font-style: normal; font-weight: 500; line-height: 27px; } .expiry-date .date { color: var(#fafafa); text-align:
-      center; font-family: Inter; font-size: 44px; font-style: normal; font-weight: 700; line-height: normal; }
-      .redeem-svg { display: flex; justify-items: center; align-items: center; margin: 0 auto; } .redeem-steps { color:
-      #434343; font-family: Inter; font-size: 16px; font-style: normal; font-weight: 400; line-height: 24px; }
-      .redeem-steps-title { color: var(--Black-black-600, #121212); font-family: Inter; font-size: 18px; font-style:
-      normal; font-weight: 500; line-height: normal; }
+      @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: Inter;
+      }
+      body {
+        min-height: 100svh;
+      }
+      header {
+        display: flex;
+        width: 100%;
+        height: 7.625rem;
+        justify-content: center;
+        align-items: center;
+        background: rgba(225, 214, 214, 0.4);
+      }
+      h2 {
+        color: #121a26;
+        font-feature-settings:
+          'liga' off,
+          'clig' off;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .template-main {
+        display: flex;
+        padding: 3.5rem 3.5rem 2rem 3.5rem;
+        flex-direction: column;
+        align-items: center;
+        gap: 3.5rem;
+        max-width: 790px;
+        margin: 0 auto;
+      }
+      .heading {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .template-header {
+        color: var(--Neutral-Colors-Dark-2, #0a0a0a);
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: 600;
+      }
+      .template-subheader {
+        color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 500;
+      }
+      .template-receiver-name {
+        color: #111;
+        font-size: 1.125rem;
+        font-weight: 600;
+      }
+      .template-welcome-message {
+        color: rgba(17, 17, 17, 0.9);
+        font-size: 1rem;
+        font-weight: 400;
+      }
+      .editable-content-title {
+        color: var(--Neutral-Colors-Dark-2, #0a0a0a);
+        font-size: 1rem;
+        font-weight: 600;
+        opacity: 0.9;
+        margin-bottom: 1.25rem;
+      }
+      .editable-content-list p {
+        opacity: 0.9;
+        color: var(--Neutral-Colors-Dark-2, rgba(17, 17, 17, 0.9));
+        font-size: 1rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+      }
+      .editable-content-list span {
+        color: var(--Neutral-Colors-Dark-2, #0a0a0a);
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .template-btn {
+        display: flex;
+        height: 2.75rem;
+        padding: 0.5rem 2.5rem;
+        align-items: center;
+        gap: 0.625rem;
+        border-radius: 0.5rem;
+        align-self: center;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .button-fill {
+        border: none;
+        color: white;
+        background: #f97316;
+      }
+      .button-outline {
+        border: 1px solid #f97316;
+        color: #f97316;
+        background: none;
+      }
+      .button-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .custom-list-items {
+        list-style: none;
+      }
+      .custom-list-items li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+      .custom-list-items li svg {
+        margin-right: 1rem;
+      }
+      .template-farewell p {
+        color: #111;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+      .closing-regards {
+        color: rgba(17, 17, 17, 0.9);
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+      a {
+        font-weight: 600;
+        text-decoration: underline;
+        color: #111;
+      }
+      .closing-regards a:hover {
+        text-decoration: underline;
+      }
+      .link-faq {
+        text-decoration: none;
+        color: #f97316;
+        font-weight: 600;
+      }
+      .link-email {
+        text-decoration: none;
+        color: #f97316;
+        font-weight: 400;
+      }
+      footer {
+        background: #f3efef;
+        display: flex;
+        width: 100%;
+        padding: 2rem 0;
+        justify-content: center;
+      }
+      .footer-container {
+        max-width: 790px;
+        width: 100%;
+        padding: 0 3rem;
+      }
+      footer .heading {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 2.0625rem;
+        margin-bottom: 1rem;
+      }
+      footer .content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.875rem;
+        color: #5b5b5d;
+        font-size: 0.875rem;
+        font-weight: 400;
+      }
+      footer .content > span {
+        margin-block-start: 1.3em;
+      }
+      footer .contact-support {
+        color: #111;
+        font-size: 0.875rem;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      footer hr {
+        border-style: dashed;
+        width: 100%;
+        border-color: #969696;
+      }
+      .expiry-date {
+        width: 100%;
+        display: flex;
+        gap: 4px;
+        flex-direction: column;
+        background-color: #f97316;
+        color: white;
+        padding: 40px;
+      }
+      .expiry-date .text {
+        color: var(#fff);
+        text-align: center;
+        font-family: Inter;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 27px;
+      }
+      .expiry-date .date {
+        color: var(#fafafa);
+        text-align: center;
+        font-family: Inter;
+        font-size: 44px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+      .redeem-svg {
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto;
+      }
+      .redeem-steps {
+        color: #434343;
+        font-family: Inter;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+      }
+      .redeem-steps-title {
+        color: var(--Black-black-600, #121212);
+        font-family: Inter;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+      }
     </style>
   </head>
 

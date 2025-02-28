@@ -39,5 +39,4 @@ export class Profile extends AbstractBaseEntity {
 
   @DeleteDateColumn()
   deletedAt?: Date;
-
 }

@@ -10,7 +10,7 @@ services:
       redis:
         condition: service_healthy
     healthcheck:
-      test: "wget -qO- http://localhost:${PORT}"
+      test: 'wget -qO- http://localhost:${PORT}'
       interval: 10s
       timeout: 10s
       retries: 3
